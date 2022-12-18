@@ -1,7 +1,6 @@
 import './App.css';
-import { BrandLogo } from './components/BrandLogo';
+import { BrandButton } from './components/BrandButton';
 import { FormAside } from './components/FormAside';
-import { Slogan } from './components/Slogan';
 import GlobalStyles from './styles/globalStyles';
 
 function App() {
@@ -9,6 +8,7 @@ function App() {
     <div>
       <GlobalStyles />
       <FormAside />
+      <BrandButton text='Adicionar' isDashboard={true} type="button" />
     </div>
   );
 }
