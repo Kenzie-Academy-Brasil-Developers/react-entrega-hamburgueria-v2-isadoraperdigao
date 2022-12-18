@@ -27,8 +27,6 @@ export const StyledLoginPage = styled.div`
         flex-direction: column;
         gap: 1.25em;
     }
-
-
     }
     
 `
