@@ -26,5 +26,10 @@ export const StyledSlogan = styled.div`
         background-color: rgba(39, 174, 96, 0.1);
         padding: 1.25em;
         border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 60px;
+        max-height: 60px;
     }
 `
