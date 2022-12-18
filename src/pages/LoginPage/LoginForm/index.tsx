@@ -16,10 +16,6 @@ export const LoginForm = () => {
                 <FormInput text="Senha" type="password" />
                 <BrandButton text="Logar" isDashboard={false} type="submit" />
             </StyledForm>
-            <StyledFormParagraph>Crie sua conta para saborear muitas delícias e matar sua fome!</StyledFormParagraph>
-            <Link to={"/dashboard"}>
-                <GrayButton text="Cadastrar" isDashboard={false} type="button" />
-            </Link>
         </StyledFormContainer>
     )
 }

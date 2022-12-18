@@ -7,7 +7,7 @@ export const StyledLoginPage = styled.div`
     align-items: center;
     justify-content: center;
 
-    .LoginPageContainer {
+    .loginPageContainer {
         width: 90%;
         display: flex;
         flex-direction: column;
@@ -15,10 +15,20 @@ export const StyledLoginPage = styled.div`
         justify-content: center;
         gap: 1em;
 
+        
+
         @media (min-width: 960px) {
         flex-direction: row;
         gap: 3.875em;
     }
+
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25em;
+    }
+
+
     }
     
 `
