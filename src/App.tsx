@@ -1,14 +1,14 @@
 import './App.css';
 import { BrandLogo } from './components/BrandLogo';
+import { FormAside } from './components/FormAside';
 import { Slogan } from './components/Slogan';
 import GlobalStyles from './styles/globalStyles';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <GlobalStyles />
-      <BrandLogo isDashboard={true}/>
-      <Slogan />
+      <FormAside />
     </div>
   );
 }
