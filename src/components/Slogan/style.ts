@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const StyledSlogan = styled.div`
     background-color: var(--bg-color-white);
     width: 100%;
-    padding: 1.125em 0.875em;
     max-width: 377px;
+    margin-top: 1.375em;
+    padding: 1.125em 0.875em;
     display: flex;
     gap: 1.188em;
     align-items: center;
@@ -15,7 +16,7 @@ export const StyledSlogan = styled.div`
     color: var(--color-gray-2);
     font-weight: 500;
     font-size: 0.875rem;
-    line-height: 22px;
+    line-height: 1.375rem;
 
     p > span {
         color: var(--color-gray-1);
