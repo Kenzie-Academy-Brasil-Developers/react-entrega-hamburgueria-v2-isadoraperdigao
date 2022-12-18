@@ -7,7 +7,7 @@ export const Slogan = () => {
             <div>
                 <img src={shoppingBag} alt="Ícone de bolsa de mão" />
             </div>
-            <p>A vida é como um sanduíche, é preciso recheá-la com os melhores ingredientes.</p>
+            <p>A vida é como um sanduíche, é preciso recheá-la com os <span>melhores</span> ingredientes.</p>
         </StyledSlogan>
     )
 }
