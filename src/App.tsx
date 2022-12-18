@@ -1,9 +1,10 @@
 import './App.css';
+import { BrandLogo } from './BrandLogo';
 
 function App() {
   return (
     <div className="App">
-      <h1>Teste</h1>
+      <BrandLogo isDashboard={true}/>
     </div>
   );
 }
