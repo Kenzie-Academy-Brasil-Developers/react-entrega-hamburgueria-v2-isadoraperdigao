@@ -1,13 +1,7 @@
+import { iButtonProps } from "../../entities/iButtonProps"
 import { StyledBrandButton } from "./style"
 
-interface iBrandButtonProps {
-    text: string;
-    callback?: () => void;
-    isDashboard: boolean;
-    type: "button" | "submit"
-}
-
-export const BrandButton = ({text, callback, isDashboard, type} : iBrandButtonProps) => {
+export const BrandButton = ({text, callback, isDashboard, type} : iButtonProps) => {
     return (
         <StyledBrandButton onClick={callback} isDashboard={isDashboard} type={type}>{text}</StyledBrandButton>
     )

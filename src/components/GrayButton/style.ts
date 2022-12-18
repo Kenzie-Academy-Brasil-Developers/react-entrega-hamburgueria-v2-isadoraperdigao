@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import { iButtonProps } from "../../entities/iButtonProps";
 
-export const StyledBrandButton = styled.button`
+export const StyledGrayButton = styled.button`
     max-height: 40px;
     padding: 0.719rem;
-    background-color: var(--color-brand);
-    border: 2px solid var(--color-brand);
+    background-color: var(--bg-color-gray-1);
+    border: 2px solid var(--bg-color-gray-1);
     border-radius: 8px;
-    color: var(--color-white);
+    color: var(--color-gray-2);
     font-size: 0.875rem;
     font-weight: 600;
 
@@ -25,7 +25,7 @@ export const StyledBrandButton = styled.button`
     }}
 
     :hover {
-        background-color: var(--color-brand-hover);
-        border: 2px solid var(--color-brand-hover);
+        background-color: var(--bg-color-gray-3);
+        color: var(--color-gray-4);
     }
-`   
+`
