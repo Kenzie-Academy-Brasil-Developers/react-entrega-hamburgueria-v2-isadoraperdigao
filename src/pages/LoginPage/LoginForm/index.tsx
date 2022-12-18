@@ -15,6 +15,10 @@ export const LoginForm = () => {
                 <FormInput text="Nome" type="text"/>
                 <FormInput text="Senha" type="password" />
                 <BrandButton text="Logar" isDashboard={false} type="submit" />
+                <StyledFormParagraph>Crie sua conta para saborear muitas delícias e matar sua fome!</StyledFormParagraph>
+                    <Link to={"/register"}>
+                        <GrayButton text="Cadastrar" isDashboard={false} type="button" />
+                    </Link>
             </StyledForm>
         </StyledFormContainer>
     )
