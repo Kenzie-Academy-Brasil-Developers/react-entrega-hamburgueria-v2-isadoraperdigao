@@ -1,4 +1,4 @@
-import LogoSVG from "../assets/img/BrandLogo.svg"
+import LogoSVG from "../../assets/img/BrandLogo.svg"
 import { StyledBrandLogo } from "./style";
 
 export interface iBrandLogoProps {
