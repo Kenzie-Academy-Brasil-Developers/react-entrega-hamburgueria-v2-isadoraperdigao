@@ -24,6 +24,7 @@ interface iUserProviderValue  {
     userRegister: SubmitHandler<iDataRegisterParameter>;
     user: iDataLoginParameter | null;
     loading: boolean;
+    token: string | null;
 }
 
 export const UserContext = createContext({} as iUserProviderValue)
@@ -97,7 +98,7 @@ export const UserProvider = ({children} : iUserProviderProps) => {
 
 
     return (
-        <UserContext.Provider value={{userLogin, userRegister, user, loading}}>
+        <UserContext.Provider value={{userLogin, userRegister, user, loading, token}}>
             {children}
         </UserContext.Provider>
     )
