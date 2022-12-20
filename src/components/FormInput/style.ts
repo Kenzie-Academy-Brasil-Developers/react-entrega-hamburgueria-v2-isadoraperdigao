@@ -1,15 +1,25 @@
 import styled, { css } from "styled-components";
+import { iInputProps } from "../../entities/iInputProps";
 
-interface iLabelProps {
-    isFocused: boolean;
-}
 
 export const StyledFormInput = styled.div`
     width: 100%;
     padding: 1.25em;
-    border: 2px solid var(--color-gray-1);
+    
     border-radius: 5px;
     position: relative;
+
+    ${({isFocused} : iInputProps) => {
+        if(isFocused) {
+            return css`
+                border: 2px solid var(--color-gray-1);
+            `
+        } else {
+            return css`
+                border: 2px solid var(--color-gray-4);
+            `
+        }
+    }}
 
     input {
         border: none;
@@ -20,7 +30,7 @@ export const StyledFormInput = styled.div`
             outline: none;
         }
 
-        ${({isFocused} : iLabelProps) => {
+        ${({isFocused} : iInputProps) => {
             if(!isFocused) {
                 return css`
                     ::placeholder {
@@ -39,7 +49,7 @@ export const StyledFormInput = styled.div`
     }}
 
     label {
-        ${({isFocused} : iLabelProps) => {if(isFocused) {
+        ${({isFocused} : iInputProps) => {if(isFocused) {
             return css`
                 display: block;
                 color: var(--color-gray-5);
