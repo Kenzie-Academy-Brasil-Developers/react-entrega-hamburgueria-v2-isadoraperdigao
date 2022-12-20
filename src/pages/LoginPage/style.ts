@@ -18,7 +18,7 @@ export const StyledLoginPage = styled.div`
         
 
         @media (min-width: 960px) {
-        flex-direction: row;
+        flex-direction: row-reverse;
         gap: 3.875em;
     }
 
