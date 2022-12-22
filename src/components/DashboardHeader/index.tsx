@@ -4,11 +4,13 @@ import { StyledDashboardHeader } from "./style"
 import logoutIcon from "../../assets/img/logoutIcon.svg"
 import searchIcon from "../../assets/img/searchIcon.svg"
 import cartIcon from "../../assets/img/cartIcon.svg"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { ProductsContext } from "../../providers/ProductsContext"
 
 export const DashboardHeader = () => {
     const [isClicked, setIsclicked] = useState(false)
+    const { setShowModal, cart} = useContext(ProductsContext)
     const navigate = useNavigate()
 
     const logout = () => {
@@ -33,8 +35,8 @@ export const DashboardHeader = () => {
                     id="searchIcon" 
                     onClick={() => setIsclicked(true)}/>
                     <div className="shoppingCartImg">
-                        <div className="shoppingCartCounter">0</div>
-                        <img src={cartIcon} alt="Ícone de carrinho de compra" className="clickableImg" />
+                        <div className="shoppingCartCounter">{cart.length}</div>
+                        <img src={cartIcon} alt="Ícone de carrinho de compra" className="clickableImg" onClick={() => setShowModal(true)} />
                     </div>
                     <img src={logoutIcon} alt="Ícone de logout" className="clickableImg" onClick={logout}/>
                 </div>

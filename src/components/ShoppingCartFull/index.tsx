@@ -2,9 +2,10 @@ import { useContext } from "react"
 import { ProductsContext } from "../../providers/ProductsContext"
 import { StyledShoppingCart } from "../../styles/shoppingCart"
 import { StyledShoppingCartHeader } from "../../styles/shoppingCartHeader"
-import { StyledShoppingCartEmpty } from "./style"
+import { CartValueResult } from "../CartValueResult"
+import { SelectedProductsList } from "../SelectedProductsList"
 
-export const ShoppingCartEmpty = () => {
+export const ShoppingCartFull = () => {
     const {setShowModal} = useContext(ProductsContext)
 
     return (
@@ -13,10 +14,8 @@ export const ShoppingCartEmpty = () => {
                 <h2>Carrinho de Compras</h2>
                 <span onClick={() => setShowModal(false)}>X</span>
             </StyledShoppingCartHeader>
-            <StyledShoppingCartEmpty>
-                <h2>Sua sacola está vazia</h2>
-                <span>Adicione itens</span>
-            </StyledShoppingCartEmpty>
+            <SelectedProductsList />
+            <CartValueResult />
         </StyledShoppingCart>
     )
 }

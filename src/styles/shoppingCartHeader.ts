@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledShoppingCartHeader = styled.div`
     width: 100%;
+    max-width: 500px;
     height: 65px;
     padding: 1.313rem;
     display: flex;
