@@ -22,6 +22,9 @@ interface iProductsProviderValue {
     setCart: React.Dispatch<React.SetStateAction<iProductInCart[]>>;
     showModal: boolean;
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+    filteredProducts: iProducts[];
+    setFilteredProduct: React.Dispatch<React.SetStateAction<iProducts[]>>;
+    updateSavedCart: (newCart : iProductInCart[]) => void;
 }
 
 export interface iProductInCart {
@@ -37,6 +40,15 @@ export const ProductsProvider = ({children} : iProductsProviderProps) => {
     const [products, setProducts] = useState([] as iProducts[])
     const [cart, setCart] = useState([] as iProductInCart[])
     const [showModal, setShowModal] = useState(false)
+    const [filteredProducts, setFilteredProduct] = useState([] as iProducts[])
+
+    if(cart.length === 0) {
+        const savedCart = localStorage.getItem("@CART")
+
+        if(savedCart) {
+            setCart(JSON.parse(savedCart))
+        }
+    }
 
     const getProducts = async () => {
         const responseProducts = await api.get("products", {
@@ -46,15 +58,32 @@ export const ProductsProvider = ({children} : iProductsProviderProps) => {
         })
         
         setProducts(responseProducts.data)
+        setFilteredProduct(responseProducts.data)
     }
     
     if(products.length === 0 && token) getProducts()
 
     const addProductToCart = (product : iProducts) => {
         if(!cart.some(productInCart => productInCart.product.id === product.id)) {
-            setCart([...cart, {product, amount: 1}])
+            const newCart = [...cart, {product, amount: 1}]
+
+            updateSavedCart(newCart)
+            setCart(newCart)
+
+            setFilteredProduct(products)
+
+            toast.success(`${product.name} adicionado ao carrinho!` )
         } else {
             toast.error("Produto já adicionado")
+        }
+    }
+
+    const updateSavedCart = (newCart : iProductInCart[]) => {
+
+        if(newCart.length > 0) {
+            localStorage.setItem("@CART", JSON.stringify(newCart))
+        } else {
+            localStorage.removeItem("@CART")
         }
     }
 
@@ -67,6 +96,9 @@ export const ProductsProvider = ({children} : iProductsProviderProps) => {
             setCart, 
             showModal, 
             setShowModal,
+            filteredProducts,
+            setFilteredProduct,
+            updateSavedCart
             }}>
 
             {children}
