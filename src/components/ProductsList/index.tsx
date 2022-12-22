@@ -4,9 +4,9 @@ import { ProductCard } from "../ProductCard"
 import { StyledProductsList } from "./style"
 
 export const ProductsList = () => {
-    const {products} = useContext(ProductsContext)
+    const { filteredProducts} = useContext(ProductsContext)
 
-    const productsLi = products.map(product => <ProductCard product={product} key={product.id} />)
+    const productsLi = filteredProducts.map(product => <ProductCard product={product} key={product.id} />)
 
     return (
         <StyledProductsList>

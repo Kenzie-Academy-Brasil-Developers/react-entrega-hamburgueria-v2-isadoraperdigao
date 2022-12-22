@@ -8,7 +8,7 @@ interface iSelectedProductCardProps {
 }
 
 export const SelectedProductCard = ({selectedProduct} : iSelectedProductCardProps) => {
-    const {cart, setCart} = useContext(ProductsContext)
+    const {cart, setCart, updateSavedCart} = useContext(ProductsContext)
 
     const addRepeatedItemToCart = (product : iProducts) => {
         setCart(cart.map(productInCart => {
@@ -21,17 +21,24 @@ export const SelectedProductCard = ({selectedProduct} : iSelectedProductCardProp
     }
 
     const removeRepeatedItemFromCart = (product : iProducts) => {
-        setCart(cart.map(productInCart => {
+        const newCart = cart.map(productInCart => {
             if(productInCart.product.id === product.id) {
                 productInCart.amount -= 1
             } 
 
             return productInCart
-        }).filter(productInCart => productInCart.amount > 0))
+        }).filter(productInCart => productInCart.amount > 0)
+
+        updateSavedCart(newCart)
+        setCart(newCart)
     }
 
     const removeItemFromCart = (product : iProducts) => {
-        setCart(cart.filter(productInCart => productInCart.product.id !== product.id))
+        const newCart = cart.filter(productInCart => productInCart.product.id !== product.id)
+
+        updateSavedCart(newCart)
+        setCart(newCart)
+
     }
 
     return (
