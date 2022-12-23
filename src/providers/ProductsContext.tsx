@@ -25,6 +25,7 @@ interface iProductsProviderValue {
     filteredProducts: iProducts[];
     setFilteredProduct: React.Dispatch<React.SetStateAction<iProducts[]>>;
     updateSavedCart: (newCart : iProductInCart[]) => void;
+    emptyCart: () => void;
 }
 
 export interface iProductInCart {
@@ -87,6 +88,11 @@ export const ProductsProvider = ({children} : iProductsProviderProps) => {
         }
     }
 
+    const emptyCart = () => {
+        updateSavedCart([])
+        setCart([])
+    }
+
 
     return (
         <ProductsContext.Provider value={{
@@ -98,7 +104,8 @@ export const ProductsProvider = ({children} : iProductsProviderProps) => {
             setShowModal,
             filteredProducts,
             setFilteredProduct,
-            updateSavedCart
+            updateSavedCart,
+            emptyCart
             }}>
 
             {children}

@@ -29,9 +29,13 @@ export const RegisterForm = () => {
             </StyledRegisterFormHeader>
             <StyledForm>
                 <FormInput text="Nome" type="text" {...register("name")} />
+                {errors.name && <p>{errors.name.message}</p>}
                 <FormInput text="Email" type="email" {...register("email")} />
+                {errors.email && <p>{errors.email.message}</p>}
                 <FormInput text="Senha" type="password" {...register("password")} />
+                {errors.password && <p>{errors.password.message}</p>}
                 <FormInput text="Confirmar senha" type="password" />
+                {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                 <GrayButton text="Cadastrar" isDashboard={false} type="submit" />
             </StyledForm>
         </StyledFormContainer>
