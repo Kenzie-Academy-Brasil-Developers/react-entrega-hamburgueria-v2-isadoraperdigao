@@ -17,6 +17,7 @@ export interface iDataRegisterParameter {
     name: string;
     email: string;
     password: string;
+    confirmPassword: string;
 }
 
 interface iUserProviderValue  {
